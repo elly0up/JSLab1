@@ -1,3 +1,8 @@
+// 1 завдання
+function isInteger(num) {
+    return Number.isInteger(num);
+}
+
 function isPrime(n) {
     if (n < 2) return false;
     for (let i = 2; i <= Math.sqrt(n); i++)
@@ -10,6 +15,26 @@ function findPrimes(a, b) {
         if (isPrime(i))
             console.log(i);
 
+}
+
+// 2 завдання
+function isIPAddress(ip) {
+    return /^(\d{1,3}\.){3}\d{1,3}$/.test(ip);
+}
+
+function findRGBA(text) {
+    const match = text.match(/rgba\(\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*([01]|0?\.\d+)\s*\)/);
+    return match ? match[0] : null;
+}
+
+function findHexColor(text) {
+    const match = text.match(/#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})/);
+    return match ? match[0] : null;
+}
+
+function findTags(text, tag) {
+    const regex = new RegExp(`<${tag}[^>]*>.*?<\/${tag}>`, 'gi');
+    return text.match(regex) || [];
 }
 
 function findPosNum(text) {
